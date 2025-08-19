@@ -9,7 +9,7 @@ from src.core.db.session import async_session_factory, get_async_session
 from src.main import create_application
 
 
-engine = create_async_engine('postgresql+asyncpg://postgres:postgres@localhost:5432/test')
+engine = create_async_engine('postgresql+asyncpg://postgres:postgres@localhost:5433/test')
 
 app = create_application()
 
