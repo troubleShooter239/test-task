@@ -5,10 +5,10 @@ from src.schemas.tasks import TaskCreate, TaskResponse, TaskUpdate
     
 from ..deps import db_d
 
-router = APIRouter(prefix='/users', tags=['users'])
+router = APIRouter(prefix='/tasks', tags=['users'])
 
 
-@router.post("/tasks/", response_model=TaskResponse)
+@router.post("/", response_model=TaskResponse)
 async def create_task(task: TaskCreate, db: db_d):
     """
     ### Создать задачу
@@ -32,7 +32,7 @@ async def create_task(task: TaskCreate, db: db_d):
     return await crud.create_task(db, task)
 
 
-@router.get("/tasks/{task_id}", response_model=TaskResponse)
+@router.get("/{task_id}", response_model=TaskResponse)
 async def read_task(task_id: str, db: db_d):
     """
     ### Получить задачу по ID
@@ -40,7 +40,7 @@ async def read_task(task_id: str, db: db_d):
 
     #### Пример запроса
     ```bash
-    GET /users/tasks/550e8400-e29b-41d4-a716-446655440000
+    GET /tasks/550e8400-e29b-41d4-a716-446655440000
     ```
 
     #### Возможные ошибки
@@ -52,7 +52,7 @@ async def read_task(task_id: str, db: db_d):
     return db_task
 
 
-@router.get("/tasks/", response_model=list[TaskResponse])
+@router.get("/", response_model=list[TaskResponse])
 async def list_tasks(db: db_d, skip: int = 0, limit: int = 100, ):
     """
     ### Получить список задач
@@ -63,13 +63,13 @@ async def list_tasks(db: db_d, skip: int = 0, limit: int = 100, ):
 
     #### Пример запроса
     ```bash
-    GET /users/tasks/?skip=0&limit=10
+    GET /tasks/?skip=0&limit=10
     ```
     """
     return await crud.get_tasks(db, skip=skip, limit=limit)
 
 
-@router.put("/tasks/{task_id}", response_model=TaskResponse)
+@router.put("/{task_id}", response_model=TaskResponse)
 async def update_task(task_id: str, task: TaskUpdate, db: db_d):
     """
     ### Обновить задачу
@@ -92,7 +92,7 @@ async def update_task(task_id: str, task: TaskUpdate, db: db_d):
     return db_task
 
 
-@router.delete("/tasks/{task_id}", response_model=TaskResponse)
+@router.delete("/{task_id}", response_model=TaskResponse)
 async def delete_task(task_id: str, db: db_d):
     """
     ### Удалить задачу
@@ -100,7 +100,7 @@ async def delete_task(task_id: str, db: db_d):
 
     #### Пример запроса
     ```bash
-    DELETE /users/tasks/550e8400-e29b-41d4-a716-446655440000
+    DELETE /tasks/550e8400-e29b-41d4-a716-446655440000
     ```
 
     #### Возможные ошибки
