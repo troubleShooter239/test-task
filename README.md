@@ -22,8 +22,7 @@
 ### Локально
 
 ```bash
-git clone https://github.com/your-repo/task-manager.git
-cd task-manager
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+git clone https://github.com/troubleShooter239/test-task.git
+cd test-task
+./run_prod.sh
 ```
