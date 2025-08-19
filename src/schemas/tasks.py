@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 from src.models.extra import TaskStatus
-from base_orm import BaseOrm
+from .base_orm import BaseOrm
 
 
 class TaskBase(BaseModel):

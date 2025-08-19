@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from src.core import crud
-from src.schemas.users import TaskCreate, TaskResponse, TaskUpdate\
+from src.schemas.tasks import TaskCreate, TaskResponse, TaskUpdate
     
 from ..deps import db_d
 

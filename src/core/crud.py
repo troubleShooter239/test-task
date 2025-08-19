@@ -2,7 +2,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
 from src.models.tasks import Task
-from src.schemas.users import TaskCreate, TaskUpdate
+from src.schemas.tasks import TaskCreate, TaskUpdate
 
 
 async def create_task(db: AsyncSession, task: TaskCreate):
